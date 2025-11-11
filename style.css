@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Rubik+Mono+One&display=swap');
+
+body {
+    background: radial-gradient(circle at center, #000000 20%, #0ff 200%);
+    color: #fff;
+    font-family: 'Rubik Mono One', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ===================== */
+/* GLITCH TITLE (H1) */
+/* ===================== */
+h1.glitch {
+    position: relative;
+    font-size: 90px;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: spin 6s infinite linear, glitch-skew 1s infinite alternate-reverse;
+    text-shadow: 0 0 5px #0ff, 0 0 20px #f0f, 0 0 40px #00ffff;
+}
+
+h1.glitch::before,
+h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0.8;
+}
+
+h1.glitch::before {
+    color: #f0f;
+    transform: translate(-4px, -2px);
+    animation: glitch 0.3s infinite linear alternate-reverse;
+}
+
+h1.glitch::after {
+    color: #0ff;
+    transform: translate(4px, 2px);
+    animation: glitch 0.3s infinite linear alternate;
+}
+
+/* ===================== */
+/* ANIMATION */
+/* ===================== */
+@keyframes glitch {
+    0% { clip-path: inset(0 0 90% 0); }
+    20% { clip-path: inset(10% 0 70% 0); }
+    40% { clip-path: inset(40% 0 40% 0); }
+    60% { clip-path: inset(60% 0 20% 0); }
+    80% { clip-path: inset(80% 0 0 0); }
+    100% { clip-path: inset(0 0 90% 0); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes glitch-skew {
+    0% { transform: skew(2deg, 2deg); }
+    25% { transform: skew(-2deg, -4deg); }
+    50% { transform: skew(4deg, 0deg); }
+    75% { transform: skew(-3deg, 3deg); }
+    100% { transform: skew(0deg, 0deg); }
+}
+
+/* ===================== */
+/* H2 WEIRD ANIMATION */
+/* ===================== */
+h2.weird {
+    font-family: 'Rubik Glitch', cursive;
+    font-size: 100px;
+    color: #ff00ff;
+    text-align: center;
+    animation: floaty 2s infinite ease-in-out, weirdcolor 3s infinite alternate;
+    letter-spacing: 2px;
+}
+
+@keyframes floaty {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-30px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(-10deg); }
+}
+
+@keyframes weirdcolor {
+    0% { color: #ff00ff; text-shadow: 0 0 5px #ff00ff; }
+    25% { color: #00ffff; text-shadow: 0 0 15px #00ffff; }
+    50% { color: #ffff00; text-shadow: 0 0 15px #ffff00; }
+    75% { color: #ff3300; text-shadow: 0 0 20px #ff3300; }
+    100% { color: #00ff00; text-shadow: 0 0 30px #00ff00; }
+}
